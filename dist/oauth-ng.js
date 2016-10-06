@@ -487,6 +487,8 @@ directives.directive('oauth', [
 
             // Updates the template at runtime
             scope.$on('oauth:template:update', function(event, template) {
+                AccessToken.destroy(scope);
+                scope.show = 'logged-out';
                 scope.template = template;
                 compile(scope);
             });
